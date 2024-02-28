@@ -2,6 +2,8 @@
     "files.associations": {
         "*.module": "php",
         "*.c++": "cpp",
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "new": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
