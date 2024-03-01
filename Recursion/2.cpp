@@ -21,12 +21,23 @@ int fibonacci(int n)
     return smallOutput1 + smallOutput2;
 }
 
+int Power(int n, int t)
+{
+    // base case
+    if (t == 0)
+        return 1;
+
+    // assumption
+    int smallerPower = Power(n, t - 1);
+
+    return n * smallerPower;
+}
+
 int main()
 {
 
-    int n;
-    cin >> n;
-
-    int ans = fibonacci(n);
+    int n, t;
+    cin >> n >> t;
+    int ans = Power(n, t);
     cout << ans << '\n';
 }
