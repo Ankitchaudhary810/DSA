@@ -33,11 +33,33 @@ int Power(int n, int t)
     return n * smallerPower;
 }
 
+int countZeros(int n)
+{
+    // base case
+    if (n == 0)
+    {
+        return 0;
+    }
+    // recursive
+    int smallAns = countZeros(n / 10);
+
+    // calculation
+    int lastDigit = n % 10;
+    if (lastDigit == 0)
+    {
+        return 1 + smallAns;
+    }
+    else
+    {
+        return smallAns;
+    }
+}
+
 int main()
 {
 
-    int n, t;
-    cin >> n >> t;
-    int ans = Power(n, t);
+    int n;
+    cin >> n;
+    int ans = countZeros(n);
     cout << ans << '\n';
 }
