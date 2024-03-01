@@ -55,11 +55,27 @@ int countZeros(int n)
     }
 }
 
+double gSum(int n)
+{
+
+    // base case
+    if (n == 0)
+    {
+        return 1;
+    }
+
+    // recursive
+    double smallAns = gSum(n - 1);
+
+    // calculation
+    return smallAns + 1.0 / pow(2, n);
+}
+
 int main()
 {
 
     int n;
     cin >> n;
-    int ans = countZeros(n);
+    double ans = gSum(n);
     cout << ans << '\n';
 }
