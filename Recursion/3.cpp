@@ -23,6 +23,15 @@ bool isSorted(int arr[], int n)
     return isSmallerSorted;
 }
 
+int sumOfArray(int arr[], int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return arr[0] + sumOfArray(arr + 1, n - 1);
+}
+
 int main()
 {
 
@@ -32,13 +41,15 @@ int main()
     int arr[n];
     for (int i = 0; i < n; i++)
         cin >> arr[i];
-
+    /*
     bool ans = isSorted(arr, n);
     cout << "ans: " << ans << '\n';
     if (ans)
         cout << "array is sorted" << '\n';
     else
         cout << "array is not Sorted" << '\n';
+    */
+    cout << sumOfArray(arr, n) << '\n';
 
     return 0;
 }
