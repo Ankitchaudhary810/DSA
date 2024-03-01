@@ -3,12 +3,17 @@ using namespace std;
 
 int fact(int n)
 {
-    if (n == 1)
+    // base case;
+    if (n == 0)
     {
         return 1;
     }
 
-    return n * fact(n - 1);
+    // assumption
+    int smallerAns = fact(n - 1);
+
+    // 3rd step induction step.
+    int ans = n * (smallerAns);
 }
 
 int main()
