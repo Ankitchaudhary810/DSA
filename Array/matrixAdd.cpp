@@ -36,7 +36,6 @@ int main()
     {
         for (int j = 0; j < n; j++)
         {
-
             sumArray[i][j] = arr1[i][j] + arr2[i][j];
         }
     }
