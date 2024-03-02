@@ -108,6 +108,22 @@ void saveAllPos(int arr[], int n, int x, int i, vector<int> &ans)
     saveAllPos(arr, n, x, i + 1, ans);
 }
 
+bool checkPal(int arr[], int s, int e)
+{
+    if (s > e)
+    {
+        return true;
+    }
+    if (arr[s] == arr[e])
+    {
+        return checkPal(arr, s + 1, e - 1);
+    }
+    else
+    {
+        return false;
+    }
+}
+
 int main()
 {
 
@@ -143,13 +159,16 @@ int main()
 
     // PrintAllPos(arr, n, 3, 0);
 
-    vector<int> ans;
-    saveAllPos(arr, n, 3, 0, ans);
+    // vector<int> ans;
+    // saveAllPos(arr, n, 3, 0, ans);
+    // cout << ans.size() << '\n';
 
-    for (int i = 0; i < ans.size(); i++)
-    {
-        cout << ans[i] << " ";
-    }
+    // for (int i = 0; i < ans.size(); i++)
+    // {
+    //     cout << ans[i] << " ";
+    // }
+
+    cout << checkPal(arr, 0, n - 1);
 
     return 0;
 }
