@@ -88,19 +88,32 @@ void printPermutations(char str[], int i)
         cout << str << '\n';
         return;
     }
-
     for (int j = i; str[j] != '\0'; j++)
     {
         swap(str[i], str[j]);
         printPermutations(str, i + 1);
+        swap(str[i], str[j]);
     }
+}
+
+int countWay(int n)
+{
+    if (n == 0 || n == 1)
+        return 1;
+
+    if (n < 0)
+        return 0;
+
+    cout << n << " ";
+
+    return countWay(n - 1) + countWay(n - 2) + countWay(n - 3);
 }
 
 int main()
 {
 
-    // char input[100];
-    // cin >> input;
+    char input[100];
+    cin >> input;
     // print(input);
     // cout << '\n';
     // reversePrint(input);
@@ -112,10 +125,16 @@ int main()
     // removeConsecutiveDuplicate(input);
     // cout << input << '\n';
 
-    string input;
-    cin >> input;
-    string output = "";
-    AllSubSequenceOfStr(input, output);
+    // string input;
+    // cin >> input;
+    // string output = "";
+    // AllSubSequenceOfStr(input, output);
+
+    // printPermutations(input, 0);
+
+    // cout << countWay(4);
+
+    vector<int> &ans;
 
     return 0;
 }
