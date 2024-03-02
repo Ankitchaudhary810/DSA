@@ -68,11 +68,39 @@ void removeConsecutiveDuplicate(char input[])
     }
 }
 
+// pending..
+void AllSubSequenceOfStr(string input, string output)
+{
+    if (input.length() == 0)
+    {
+        cout << output << " ";
+        return;
+    }
+
+    AllSubSequenceOfStr(input.substr(1), output);
+    AllSubSequenceOfStr(input.substr(1), output + input[0]);
+}
+
+void printPermutations(char str[], int i)
+{
+    if (str[i] == '\0')
+    {
+        cout << str << '\n';
+        return;
+    }
+
+    for (int j = i; str[j] != '\0'; j++)
+    {
+        swap(str[i], str[j]);
+        printPermutations(str, i + 1);
+    }
+}
+
 int main()
 {
 
-    char input[100];
-    cin >> input;
+    // char input[100];
+    // cin >> input;
     // print(input);
     // cout << '\n';
     // reversePrint(input);
@@ -81,7 +109,13 @@ int main()
     // replaceChar(input);
     // cout << input << '\n';
 
-    removeConsecutiveDuplicate(input);
-    cout << input << '\n';
+    // removeConsecutiveDuplicate(input);
+    // cout << input << '\n';
+
+    string input;
+    cin >> input;
+    string output = "";
+    AllSubSequenceOfStr(input, output);
+
     return 0;
 }

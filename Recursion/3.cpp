@@ -48,7 +48,6 @@ bool checkElement(int arr[], int n, int ele)
     return checkElement(arr + 1, n - 1, ele);
 }
 
-// pending
 int FirstPos(int arr[], int n, int x, int i)
 {
 
@@ -64,7 +63,6 @@ int FirstPos(int arr[], int n, int x, int i)
     return FirstPos(arr, n, x, i + 1);
 }
 
-// pending
 int LastPost(int arr[], int n, int x, int i, int ans)
 {
 
