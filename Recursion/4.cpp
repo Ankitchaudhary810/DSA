@@ -132,6 +132,32 @@ void subsequenceSumTok(int arr[], vector<int> &ds, int i, int n, int sum, int s)
     subsequenceSumTok(arr, ds, i + 1, n, sum, s);
 }
 
+int CountSubsequenceSumTok(int arr[], vector<int> &ds, int i, int n, int sum, int s)
+{
+    if (i == n)
+    {
+        if (s == sum)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    ds.push_back(arr[i]);
+    s += arr[i];
+
+    int left = CountSubsequenceSumTok(arr, ds, i + 1, n, sum, s);
+
+    ds.pop_back();
+    s -= arr[i];
+
+    int right = CountSubsequenceSumTok(arr, ds, i + 1, n, sum, s);
+    return left + right;
+}
+
 int main()
 {
 
@@ -166,7 +192,9 @@ int main()
         cin >> arr[i];
 
     int sum = 2;
-    subsequenceSumTok(arr, ds, 0, n, sum, 0);
+    // subsequenceSumTok(arr, ds, 0, n, sum, 0);
+
+    cout << CountSubsequenceSumTok(arr, ds, 0, n, sum, 0) << '\n';
 
     return 0;
 }
