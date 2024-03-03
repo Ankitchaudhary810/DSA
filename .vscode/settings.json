@@ -3,7 +3,8 @@
         "*.module": "php",
         "*.c++": "cpp",
         "iostream": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "vector": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
