@@ -109,11 +109,34 @@ int countWay(int n)
     return countWay(n - 1) + countWay(n - 2) + countWay(n - 3);
 }
 
+void subsequenceSumTok(int arr[], vector<int> &ds, int i, int n, int sum, int s)
+{
+    if (i == n)
+    {
+        for (auto x : ds)
+        {
+            if (sum == s)
+                cout << x << " ";
+        }
+        return;
+    }
+
+    ds.push_back(arr[i]);
+    s += arr[i];
+
+    subsequenceSumTok(arr, ds, i + 1, n, sum, s);
+
+    ds.pop_back();
+    s -= arr[i];
+
+    subsequenceSumTok(arr, ds, i + 1, n, sum, s);
+}
+
 int main()
 {
 
-    char input[100];
-    cin >> input;
+    // char input[100];
+    // cin >> input;
     // print(input);
     // cout << '\n';
     // reversePrint(input);
@@ -134,7 +157,16 @@ int main()
 
     // cout << countWay(4);
 
-    vector<int> &ans;
+    // vector<int> &ans;
+    vector<int> ds;
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    int sum = 2;
+    subsequenceSumTok(arr, ds, 0, n, sum, 0);
 
     return 0;
 }
