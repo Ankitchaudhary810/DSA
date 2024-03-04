@@ -39,6 +39,27 @@ void maxArrElement(int i, vector<int> arr, int &MAX)
         return maxArrElement(i + 1, arr, MAX);
     }
 }
+
+int toh(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    cout << "n => " << n << '\n';
+    return toh(n - 1) + 1 + toh(n - 1);
+}
+
+void printSteps(int n, char s, char d, char h)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    printSteps(n - 1, s, h, d);
+    cout << "Moving disk " << n << " from source " << s << " to destination => " << d << '\n';
+    printSteps(n - 1, h, d, s);
+}
 int main()
 {
 
@@ -46,12 +67,12 @@ int main()
     cin >> n;
     vector<int> arr(n);
 
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    int MAX = -0;
+    // for (int i = 0; i < n; i++)
+    //     cin >> arr[i];
+    // int MAX = -0;
 
-    maxArrElement(0, arr, MAX);
-    cout << "max element: " << MAX << '\n';
+    // maxArrElement(0, arr, MAX);
+    // cout << "max element: " << MAX << '\n';
     // vector<vector<int>> ans;
     // generatePermutations(0, n, arr, ans);
 
@@ -68,4 +89,7 @@ int main()
     // int cnt;
 
     // cout << countChar(str, 0, cnt);
+
+    // cout << toh(n) << '\n';
+    printSteps(n, 'A', 'C', 'B');
 }
