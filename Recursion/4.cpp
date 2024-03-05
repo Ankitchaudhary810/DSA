@@ -68,7 +68,6 @@ void removeConsecutiveDuplicate(char input[])
     }
 }
 
-// pending..
 void AllSubSequenceOfStr(string input, string output)
 {
     if (input.length() == 0)

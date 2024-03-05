@@ -21,7 +21,6 @@ int countChar(string str, int i, int &cnt)
     {
         return 0;
     }
-
     return 1 + countChar(str, i + 1, cnt);
 }
 
