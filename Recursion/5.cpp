@@ -50,6 +50,7 @@ int toh(int n)
 }
 
 void printSteps(int n, char s, char d, char h)
+
 {
     if (n == 0)
     {
@@ -59,6 +60,31 @@ void printSteps(int n, char s, char d, char h)
     cout << "Moving disk " << n << " from source " << s << " to destination => " << d << '\n';
     printSteps(n - 1, h, d, s);
 }
+
+void CoinCombination(int sum, vector<int> arr, int i, int n, int currentSum, vector<int> ds)
+{
+    if (i == arr.size())
+    {
+        if (sum == 0)
+        {
+            for (auto it : ds)
+            {
+                cout << it << " ";
+            }
+            cout << '\n';
+        }
+        return;
+    }
+
+    if (arr[i] <= sum)
+    {
+        ds.push_back(arr[i]);
+        CoinCombination(sum - arr[i], arr, i, n, currentSum - arr[i], ds);
+        ds.pop_back();
+    }
+    CoinCombination(sum, arr, i + 1, n, currentSum, ds);
+}
+
 int main()
 {
 
@@ -66,8 +92,8 @@ int main()
     cin >> n;
     vector<int> arr(n);
 
-    // for (int i = 0; i < n; i++)
-    //     cin >> arr[i];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
     // int MAX = -0;
 
     // maxArrElement(0, arr, MAX);
@@ -90,5 +116,7 @@ int main()
     // cout << countChar(str, 0, cnt);
 
     // cout << toh(n) << '\n';
-    printSteps(n, 'A', 'C', 'B');
+    // printSteps(n, 'A', 'C', 'B');
+    vector<int> ds;
+    CoinCombination(4, arr, 0, n, 0, ds);
 }
